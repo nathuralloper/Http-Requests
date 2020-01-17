@@ -6,6 +6,10 @@ import android.os.StrictMode
 import android.util.Log
 import android.widget.Button
 import android.widget.Toast
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import java.io.IOException
 import java.io.InputStream
 import java.net.HttpURLConnection
@@ -22,6 +26,7 @@ class MainActivity : AppCompatActivity(), CompletedListener {
 
         val btnValidate = findViewById<Button>(R.id.btnValidate)
         val btnHttpRequest = findViewById<Button>(R.id.btnHttpRequest)
+        val btnVolley = findViewById<Button>(R.id.btnVolley)
 
         btnValidate.setOnClickListener{
             if (Network.ThereIsNetwork(this)){
@@ -38,6 +43,31 @@ class MainActivity : AppCompatActivity(), CompletedListener {
                 Toast.makeText(this, "Make sure there is an internet connection!", Toast.LENGTH_SHORT).show()
             }
         }
+
+        btnVolley.setOnClickListener{
+            if (Network.ThereIsNetwork(this)){
+                requestVolley("http://www.google.com")
+            }else{
+                Toast.makeText(this, "Make sure there is an internet connection!", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    //volley method
+    private fun requestVolley(url:String){
+        val queue = Volley.newRequestQueue(this)
+
+        val request = StringRequest(Request.Method.GET, url, Response.Listener<String>{
+            response ->
+            try {
+                Log.d("HttpVolley", response)
+            }catch (e:IOException){
+
+            }
+        }, Response.ErrorListener {  })
+
+        queue.add(request)
+
     }
 
 
