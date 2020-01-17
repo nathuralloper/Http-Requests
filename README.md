@@ -1,4 +1,4 @@
-# Http Request (Comparisons of Http Libraries)
+## Http Request (Comparisons of Http Libraries)
 #### Volley Benefits
 - Ideal for the administration of a Simple API
 - NetworkImageView is a very efficient way to load images
