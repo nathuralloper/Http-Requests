@@ -8,14 +8,14 @@
 - Very good if you want to manage very high resolution images
 - Volley adapts very well in the life cycle of an application
 
-### Disadvantages
+#### Disadvantages
 - There is not much documentation
 
-### OkHttp benefits
+#### OkHttp benefits
 - It can be used with volley or other library
 - Cache
 - Focused on reducing latency in connections
 - Supports HTTP and SPDY
 
-### Disadvantages
+#### Disadvantages
 - It requires more implementation
